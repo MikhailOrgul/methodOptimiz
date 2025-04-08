@@ -2,10 +2,11 @@ const f = ([x0, x1]) => x0**2 - 3*x0*x1 + 10*x1**2 + 5*x0 - 3*x1;
 
 const constraints = [
     {
-        g: ([x0, x1]) => x0 + x1 - 3,  // x0 + x1 ≤ 3  → g(x) = x0 + x1 - 3 ≤ 0
+        g: ([x0, x1]) => x1 + x0 - 5,
         type: "<="
     }
 ];
+
 
 function hookeJeevesPenalty(
     f,                      // целевая функция
@@ -38,7 +39,7 @@ function hookeJeevesPenalty(
     };
 
     //
-    const phi = (x, A) => f(x) + A * penalty(x);
+    const phi = (x, A) => f(x) + A * penalty(x); //Штрафная функция Лагранжа
 
     let A_k = penaltyCoeff;
     let xb = [...x0];
