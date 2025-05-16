@@ -2,11 +2,10 @@ const f = ([x0, x1]) => x0**2 - 3*x0*x1 + 10*x1**2 + 5*x0 - 3*x1;
 
 const constraints = [
     {
-        g: ([x0, x1]) => x1 + x0 - 5,
-        type: "<="
+        g: ([x0, x1]) => x0+x1+1.5, // т.е. x0 + x1 ≤ 5
+        type: "=="
     }
 ];
-
 
 function hookeJeevesPenalty(
     f,                      // целевая функция
@@ -32,7 +31,7 @@ function hookeJeevesPenalty(
             if (type === "<=") {
                 sum += Math.pow(Math.max(0, gx), q);
             } else if (type === "==") {
-                sum += Math.pow(Math.abs(gx), q);
+                sum += Math.pow(Math.abs(gx), q); 
             }
         }
         return sum;
@@ -95,7 +94,6 @@ const result = hookeJeevesPenalty(f, [2, 1], constraints);
 console.log(`    
     Минимум: ${result.solution};
     Значение f(x): ${result.value};
-    Штраф: ${result.penaltyValue};
     Итераций: ${result.iterations};
     λ: ${result.finalLambda}
-    `)
+`)
