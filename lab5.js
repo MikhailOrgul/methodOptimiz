@@ -6,7 +6,7 @@ const func = (x1, x2) => {
 };
 
 const variables = ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7'];
-let baseIndexes = [6, 7, 4, 5];
+let baseIndexes = [];
 
 let table = [
 

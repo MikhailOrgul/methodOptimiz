@@ -2,10 +2,11 @@ const f = ([x0, x1]) => x0**2 - 3*x0*x1 + 10*x1**2 + 5*x0 - 3*x1;
 
 const constraints = [
     {
-        g: ([x0, x1]) => x0+x1+1.5, // т.е. x0 + x1 ≤ 5
-        type: "=="
+        g: ([x0, x1]) => x1 - x0 + 5,
+        type: "<="
     }
 ];
+
 
 function hookeJeevesPenalty(
     f,                      // целевая функция
